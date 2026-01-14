@@ -1,3 +1,6 @@
+import { useState, useRef, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styles from "./Topbar.module.scss";
 
 import PageTitle from "../../atoms/PageTitle/PageTitle";
@@ -5,36 +8,84 @@ import IconButton from "../../atoms/IconButton/IconButton";
 import ProfileBox from "../../molecules/ProfileBox/ProfileBox";
 
 import { selectUser } from "../../../store/auth/authSelectors";
-import { useSelector } from "react-redux";
+import { useLogout } from "../../../hooks/useAuth";
+import { toast } from "react-hot-toast";
 
 import NotificationIcon from "../../icons/NotificationIcon";
 import SearchIcon from "../../icons/SearchIcon";
 
 export default function Topbar() {
-  const user = useSelector(selectUser); 
-  const FullNameFromStorage = localStorage.getItem("fullName");
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const navigate = useNavigate();
+  const { mutate: logoutUser } = useLogout();
+
+  const user = useSelector(selectUser);
+  const fullNameFromStorage = localStorage.getItem("fullName");
+
+  // Redux state'indeki null değerine karşı fallback mekanizması
+  const displayName = user?.fullName || user || fullNameFromStorage || "Guest User";
+
+  // Dışarı tıklayınca menüyü kapatma
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleLogout = () => {
+    logoutUser();
+    toast.success("Logged out successfully");
+    navigate("/signin");
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className={styles.topbar}>
-      {/* Left */}
+      {/* Sol Kısım */}
       <div className={styles.left}>
         <PageTitle>Dashboard</PageTitle>
       </div>
-     
-      {/* Right */}
+
+      {/* Sağ Kısım */}
       <div className={styles.right}>
-      <IconButton 
-        icon={<SearchIcon size={24} />} 
-        onClick={() => console.log("Search")} 
-      />
-        <IconButton 
-        icon={<NotificationIcon size={20} />} 
-        onClick={() => console.log("Notification")} 
-      />
-        <ProfileBox
-          name={user?.fullName || FullNameFromStorage || "Guest User"}
-          avatar="https://ui-avatars.com/api/?name=Guest&background=2f3439&color=fff"
+        <IconButton
+          icon={<SearchIcon size={24} />}
+          onClick={() => console.log("Search")}
         />
+        <IconButton
+          icon={<NotificationIcon size={20} />}
+          onClick={() => console.log("Notification")}
+        />
+
+        {/* Profil ve Dropdown Alanı */}
+        <div className={styles.profileWrapper} ref={menuRef}>
+          <div 
+            className={styles.profileTrigger} 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <ProfileBox
+              name={displayName}
+              avatar={`https://ui-avatars.com/api/?name=${displayName}&background=2f3439&color=fff`}
+            />
+          </div>
+
+          {/* Sadece isMenuOpen true ise gösterilen Dropdown */}
+          {isMenuOpen && (
+            <div className={styles.dropdownMenu}>
+              <div className={styles.mobileOnlyInfo}>
+                <p>{displayName}</p>
+              </div>
+              <button onClick={handleLogout} className={styles.logoutBtn}>
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
