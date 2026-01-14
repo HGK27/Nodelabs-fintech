@@ -1,6 +1,6 @@
-import SkeletonCircle from "../SkeletonCirle/SkeletonCircle"
-import SkeletonText from "../SkeletonText/SkeletonText";
-import SkeletonInfo from "../SkeletonInfo/SkeletonInfo"
+import SkeletonCircle from "../SkeletonCirle/SkeletonCircle.jsx"
+import SkeletonText from "../SkeletonText/SkeletonText.jsx";
+import SkeletonInfo from "../SkeletonInfo/SkeletonInfo.jsx"
 import styles from "./SkeletonRowScheduled.module.scss";
 
 export default function SkeletonRowScheduled() {

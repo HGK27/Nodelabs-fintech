@@ -28,7 +28,7 @@ export default function RegisterForm() {
   const onSubmit = (formData) => {
     // React Query mutasyonunu tetikle
     register(formData, {
-      onSuccess: (data) => {
+      onSuccess: () => {
         toast.success("Kayıt başarılı!");
         navigate("/signin");
       },

@@ -24,7 +24,7 @@ export const useLogin = () => {
 export const useRegister = () => {
   return useMutation({
     mutationFn: RegisterRequest,
-    onSuccess: (data) => {
+    onSuccess: () => {
 
     },
     onError: (error) => {

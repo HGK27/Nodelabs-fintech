@@ -1,6 +1,5 @@
 import sytles from './ViewAllButton.module.scss';
-import ChevronRightIcon from '../../icons/ChevronRightIcon.jsx';
-
+import ChevronRightIcon from '../../icons/ChevronIcon.jsx';
 
 export default function ViewAllButton() {
   return (

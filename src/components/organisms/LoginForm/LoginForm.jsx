@@ -27,7 +27,7 @@ export default function LoginForm() {
   const onSubmit = (formData) => {
     // React Query mutasyonunu tetikle
     login(formData, {
-      onSuccess: (data) => {
+      onSuccess: () => {
         toast.success("Giriş başarılı! Hoş geldiniz.");
         navigate("/dashboard/home");
       },

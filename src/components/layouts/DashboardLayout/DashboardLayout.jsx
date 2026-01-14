@@ -1,5 +1,5 @@
 import styles from "./DashboardLayout.module.scss";
-import Sidebar from "../../organisms/Sidebar/Sidebar";
+import Sidebar from "../../organisms/Sidebar/Sidebar.jsx";
 import Topbar from "../../organisms/Topbar/Topbar";
 import { Outlet } from "react-router-dom";
 import 'react-loading-skeleton/dist/skeleton.css';
