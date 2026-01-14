@@ -1,5 +1,5 @@
 import styles from "./PeriodSelect.module.scss";
-import ChevronRightIcon from "../../../icons/ChevronRightIcon";
+import ChevronRightIcon from "../../../icons/ChevronRightIcon"
 
 export default function PeriodSelect({ value, options, onChange }) {
   return (
