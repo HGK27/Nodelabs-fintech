@@ -14,10 +14,7 @@ export async function LogoutRequest() {
   const res = await api.post("/users/logout");
   return res.data;
 }
-export async function RefreshTokenRequest() {
-  const res = await api.post("/users/refresh_token");
-  return res.data;
-}
+
 export async function GetProfileRequest() {
   const res = await api.get("/users/profile");
   return res.data;

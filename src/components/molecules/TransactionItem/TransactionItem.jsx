@@ -10,13 +10,15 @@ export default function TransactionItem({ transaction }) {
       <div className={styles.column}>
         <Avatar src={transaction.image} alt={transaction.name} size="md" />
         <TitleWithCaption
-        size="sm"        
+          size="sm"
           title={transaction.name}
           subtitle={transaction.business}
         />
       </div>
 
-      <div className={styles.column}>{transaction.type}</div>
+      <div className={styles.column}>
+        <span className={styles.type}>{transaction.type}</span>
+      </div>
 
       <div className={styles.column}>
         <CurrencyText

@@ -12,6 +12,7 @@ import SearchIcon from "../../icons/SearchIcon";
 
 export default function Topbar() {
   const user = useSelector(selectUser); 
+  const FullNameFromStorage = localStorage.getItem("fullName");
   
   return (
     <header className={styles.topbar}>
@@ -31,8 +32,7 @@ export default function Topbar() {
         onClick={() => console.log("Notification")} 
       />
         <ProfileBox
-          name={user?.fullName || "Guest User"}
-          role={user?.role || "Visitor"}
+          name={user?.fullName || FullNameFromStorage || "Guest User"}
           avatar="https://ui-avatars.com/api/?name=Guest&background=2f3439&color=fff"
         />
       </div>

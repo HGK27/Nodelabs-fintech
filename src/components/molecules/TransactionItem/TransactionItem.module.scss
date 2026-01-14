@@ -39,7 +39,10 @@
 .column:nth-child(3) {
   font-weight: 600;
 }
-
+.type{
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
 
 .date {
   font-size: var(--text-sm);

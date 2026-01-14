@@ -12,6 +12,7 @@ export const useLogin = () => {
       const { user, accessToken } = data.data;
       // 1. Token'ı kalıcı yap
       localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem("fullName", user?.fullName)
       // 2. Redux'a "Kullanıcı giriş yaptı" bilgisini uçur
       dispatch(setAuth({ user: user, token: accessToken }));
     },
