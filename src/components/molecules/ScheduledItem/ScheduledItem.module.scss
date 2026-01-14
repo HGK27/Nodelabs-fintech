@@ -1,0 +1,16 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(250, 250, 250, 1);
+  &:last-child{
+    border: none;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

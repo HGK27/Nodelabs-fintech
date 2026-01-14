@@ -1,0 +1,55 @@
+.form {
+    width: 100%;
+
+    .loginFormHeader {
+        margin-bottom: var(--space-xlg);
+
+        .title {
+            font-size: var(--text-title);
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: var(--space-md);
+        }
+
+        .subtitle {
+            font-size: var(--text-md);
+            font-weight: 400;
+            color: var(--color-text-gray);
+        }
+    }
+
+    .loginFormMain{
+         margin-bottom: var(--space-xlg);
+    }
+    .loginFormButtons{
+          margin-bottom: var(--space-xlg);
+    }
+    .footerText{
+        font-size: var(--text-sm);
+        font-weight: 400;
+        color: var(--color-text-gray);
+        text-align: center;
+
+        a {
+            position: relative;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s;
+            &:hover {
+                color:var(--button-yellow-bg);
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                bottom:-15px;
+                left: 0;
+                background-image: url(../../../assets/images/loginpageicon.svg);
+                background-repeat: no-repeat;;
+                width: 100%;
+                height: 10px;
+                display: block;
+            }
+        }
+    }
+}

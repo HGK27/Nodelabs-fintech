@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.moreButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+
+  span {
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-text-lightgray);
+    border-radius: 50%;
+    display: block;
+  }
+
+  &:hover span {
+    background-color: #64748b;
+  }
+}

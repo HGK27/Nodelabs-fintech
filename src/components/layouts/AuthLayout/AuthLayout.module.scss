@@ -1,0 +1,48 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 675px);
+  height: 100vh;
+}
+
+.left {
+  width: 404px;
+  margin-inline: auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  img {
+    height: 30px;
+    width: 108px;
+  }
+}
+
+.formWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr; 
+  }
+
+  .right {
+    display: none; 
+  }
+
+  .left {
+    width: 100%;          
+    max-width: 420px;     
+    margin: 0 auto;       
+    padding: 24px;
+  }
+}

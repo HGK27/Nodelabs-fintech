@@ -1,0 +1,19 @@
+.input {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color-input);
+  font-size: var(--text-sm);
+  &:focus-visible, &:focus {
+    border-color: none;
+    outline: none;
+  }
+}
+
+.error {
+  border-color: var(--color-error);
+
+  &:focus-visible, &:focus {
+    border-color: var(--color-error);
+  }
+}

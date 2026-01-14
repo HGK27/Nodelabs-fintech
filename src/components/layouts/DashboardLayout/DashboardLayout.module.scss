@@ -1,0 +1,42 @@
+.dashboardLayout {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar zaten fixed genişlikte */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Topbar üstte sabit durur */
+.main> :first-child {
+  flex-shrink: 0;
+}
+
+/* Asıl dashboard içeriği */
+.content {
+  flex: 1;
+  padding: 0 40px;
+  overflow-y: auto;
+}
+
+@media (max-width: 1400px) {
+  .content {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 992px) {
+  .content {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 0 16px;
+  }
+}

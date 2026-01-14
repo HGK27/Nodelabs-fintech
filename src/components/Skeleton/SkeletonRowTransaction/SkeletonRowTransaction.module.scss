@@ -1,0 +1,7 @@
+.skeletonRow {
+  display: grid;
+  grid-template-columns: 36px 3fr 2fr 2fr 2fr;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 0;
+}

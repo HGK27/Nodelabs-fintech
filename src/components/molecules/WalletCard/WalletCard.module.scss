@@ -1,0 +1,155 @@
+.card {
+  width: 324px;
+  height: 172px;
+  border-radius: 15px;
+  padding: 15px 20px;
+  color: var(--color-text-dark);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  top: -60px;
+  opacity: 0.8;
+  z-index: 1;
+
+  >* {
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(149, 149, 149, 0.4),
+        rgba(50, 64, 0, 0.1));
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0.5;
+    border-radius: 15px;
+    z-index: -1;
+  }
+}
+
+.default {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  width: 354px;
+  height: 210px;
+  position: relative;
+  top: 0;
+  color: #fff;
+  z-index: 0;
+  padding: 18px 30px;
+
+  &::before {
+    content: none;
+  }
+
+  .bank {
+    .name {
+      color: #fff;
+    }
+  }
+
+  .chip {
+    width: 38px;
+    height: 30px;
+  }
+
+  .contactless {
+    color: #363B41;
+  }
+
+  .number {
+    font-size: 17px;
+  }
+
+  .chipRow {
+    margin: 15px 0;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.bank {
+  .name {
+    font-weight: 500;
+    font-size: var(--text-md);
+  }
+
+  .separator {
+    color: #626261;
+    font-size: 20px;
+  }
+
+  .type {
+    color: #626261;
+    font-size: var(--text-xsm);
+  }
+}
+
+/* CHIP */
+.chipRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.chip {
+  width: 30px;
+  height: 24px;
+  background-image: url(../../../assets/images/chip.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.contactless {
+  transform: translateY(-50%) rotate(90deg);
+  position: relative;
+  top: 20px;
+
+}
+
+/* NUMBER */
+.number {
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.value {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 288px;
+  }
+
+  .default {
+    width: 304px;
+  }
+}

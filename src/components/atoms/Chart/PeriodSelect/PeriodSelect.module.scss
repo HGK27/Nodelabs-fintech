@@ -1,0 +1,33 @@
+  .wrapper {
+    position: relative;
+    display: inline-block;
+
+    .select {
+      padding: 8px 18px 8px 10px;
+      border-radius: 5px;
+      background: #F8F8F8;
+      border: none;
+      font-size: var(--text-xsm);
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      color: var(--color-text-dark);
+      font-weight: 400;
+    }
+
+    .icon {
+      position: absolute;
+      right: 7px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg); // ChevronRight → aşağı çevir
+      pointer-events: none; // tıklamayı select alsın
+      color: var(--color-text-dark);
+
+      svg {
+        width: 9px;
+        height: 9px;
+      }
+    }
+  }

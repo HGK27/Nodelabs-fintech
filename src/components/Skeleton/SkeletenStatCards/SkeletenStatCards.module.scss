@@ -1,0 +1,29 @@
+.skeletonWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Masaüstünde 3 eşit parça
+  gap: 25px;
+  width: 100%;
+
+  .skeletonCardContainer {
+    width: 100%;
+    
+    // Skeleton bileşenine yükseklik kazandırıyoruz
+    .skeletonCard {
+      height: 226px;
+      display: block; // Span değil block gibi davranması için
+      line-height: 1;
+    }
+
+    // Kütüphane içindeki span'ı tam boy yapmak için
+    :global(.react-loading-skeleton) {
+      height: 100%;
+      border-radius: 12px;
+    }
+  }
+
+  // Mobil Uyumluluk
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // Mobilde tek sütun (alt alta)
+    gap: 15px;
+  }
+}

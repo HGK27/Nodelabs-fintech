@@ -1,0 +1,174 @@
+.sidebar {
+  position: relative;
+  width: 250px;
+  height: 100vh;
+  background: var(--color-background-sidebar);
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+
+  /* smooth */
+  transition: width 220ms ease, padding 220ms ease;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+/* Logo switching */
+.logoFull {
+  display: block;
+  height: 30px;
+  width: auto;
+}
+
+.logoCompact {
+  display: none;
+  height: 34px;
+  width: auto;
+}
+
+/* Toggle default: hidden on desktop */
+.toggleBtn {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  display: none;
+  border: 0;
+  background: var(--color-background-sidebar);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px 8px;
+  margin-top: 10px;
+  align-self: flex-end;
+
+  /* hit area */
+  width: 44px;
+  height: 36px;
+}
+
+/* 3 span = chevron */
+.toggleBtn span {
+  position: absolute;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 220ms ease, opacity 220ms ease, top 220ms ease;
+}
+
+/* upper + lower lines make a ">" arrow */
+.toggleBtn span:nth-child(1) {
+  top: 13px;
+  transform: translateX(-50%) rotate(45deg);
+}
+.toggleBtn span:nth-child(2) {
+  opacity: 0; /* middle hidden => cleaner chevron */
+  top: 17px;
+  transform: translateX(-50%);
+}
+.toggleBtn span:nth-child(3) {
+  top: 21px;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.topMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 40px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.bottomMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 75px;
+}
+
+@media (max-width: 1200px) {
+  .toggleBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* collapsed/expanded widths only apply under 1200 */
+  .collapsed {
+    width: 80px;
+    padding: 20px 12px;
+  }
+
+  .expanded {
+    width: 250px;
+    padding: 25px;
+  }
+
+  /* brand center in collapsed */
+  .collapsed .brand {
+    justify-content: center;
+  }
+
+  /* Logo switch */
+  .collapsed .logoFull {
+    display: none;
+  }
+  .collapsed .logoCompact {
+    display: block;
+  }
+
+  .expanded .logoFull {
+    display: block;
+  }
+  .expanded .logoCompact {
+    display: none;
+  }
+
+  /* Toggle arrow rotates depending on state:
+     - collapsed => arrow points right (">")
+     - expanded  => arrow points left ("<")
+  */
+  .expanded .toggleBtn span:nth-child(1) {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  .expanded .toggleBtn span:nth-child(3) {
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  /* MENU ITEM LABEL HIDE (MenuItem CSS module class isimlerini bilmiyoruz)
+     Bu yüzden MenuItem içinde label’a global class vermen en temiz yol.
+     Eğer MenuItem label class'ı 'label' ise:
+  */
+  .collapsed :global(.menuItemLabel) {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transform: translateX(-6px);
+    transition: opacity 180ms ease, transform 180ms ease, width 180ms ease;
+  }
+
+  .expanded :global(.menuItemLabel) {
+    opacity: 1;
+    width: auto;
+    transform: translateX(0);
+    margin-left: 15px;
+  }
+  .expanded :global(  .menuItem){
+    justify-content: flex-start;
+  }
+
+  /* ikon ortalama */
+  .collapsed :global(.menuItemRoot) {
+    justify-content: center;
+  }
+}

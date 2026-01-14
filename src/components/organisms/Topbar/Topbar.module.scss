@@ -1,0 +1,28 @@
+.topbar {
+  height: 48px;
+  margin:30px 40px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+@media (max-width: 768px) {
+  .topbar {
+  height: 40px;
+  margin:10px 25px;
+  }
+  .right {
+  gap: 12px;
+}
+}

@@ -1,0 +1,20 @@
+.icon {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* varyantlar */
+.default {
+  background: #EBE8E8;
+  color: #363A3F;
+}
+
+.success {
+  background: #4E5257;
+  color: var(--button-yellow-bg);
+}

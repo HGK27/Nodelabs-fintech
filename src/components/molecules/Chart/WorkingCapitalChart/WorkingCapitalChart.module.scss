@@ -1,0 +1,19 @@
+.chartContainer {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+
+  // Recharts Eksen Yazıları
+  :global(.recharts-cartesian-axis-tick-value) {
+    fill: #94a3b8;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  // Izgara çizgilerini çok hafiflet
+  :global(.recharts-cartesian-grid-horizontal line) {
+    stroke: #f1f5f9;
+  }
+}

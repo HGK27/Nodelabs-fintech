@@ -1,0 +1,43 @@
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px 0 26px;
+
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+    }
+  }
+  
+.legendWrapper {
+  position: relative;
+  left: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  .legendItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--text-xsm);
+    font-weight: 500;
+    color: #64748b;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .incomeDot {
+      background-color: #059669;
+    }
+
+    .expenseDot {
+      background-color: #bef264;
+    }
+  }
+}

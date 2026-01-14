@@ -1,0 +1,13 @@
+.skeletonRow {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  gap: 15px;
+  padding: 6px 0;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

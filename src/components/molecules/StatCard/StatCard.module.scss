@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 22px 20px;
+  border-radius: 10px;
+  background: #f9fafb;
+   width: 100%
+}
+
+.active {
+  background: #363A3F;
+  color: #ffffff;
+
+  .title {
+    color: #9ca3af;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: var(--text-sm);
+  color: var(--color-text-lightgray);
+  font-weight: 400;
+}

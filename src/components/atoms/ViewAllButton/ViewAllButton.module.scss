@@ -1,0 +1,15 @@
+.ViewAllButton{
+    color: var(--color-button-green);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    .icon{
+        width: 9px;
+        height: 9px;
+        margin-left: 6px;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+        left: 5px;
+    }
+}

@@ -1,0 +1,19 @@
+.container {
+  border-radius: 10px;
+  border: 1px solid var(--border-color-button);
+  padding: 22px;
+}
+.headerRow {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 2fr; 
+  padding: 16px 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-lightgray);
+  span{
+    text-align: center;
+    &:first-child {
+      text-align: left;
+    }
+  }
+}

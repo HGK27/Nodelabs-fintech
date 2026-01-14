@@ -1,0 +1,33 @@
+.primary {
+  position: relative;
+  background: var(--button-yellow-bg);
+  width: 100%;
+  border: none;
+  padding: 14px 20px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-dark);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #bad858;
+  }
+}
+
+.secondary {
+  background: white;
+  border: 1px solid var(--border-color-button);
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  color: var(--color-text-gray);
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--button-yellow-bg);
+  }
+}

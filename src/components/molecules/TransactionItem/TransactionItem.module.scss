@@ -1,0 +1,47 @@
+.item {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 2fr; // 🔥 görseldeki oran
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color-button);
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 4px;
+  }
+  .title{
+    margin-left: 5px;
+  }
+}
+
+/* Ortak column yapısı */
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+}
+
+/* 1. kolon (Avatar + Title) */
+.column:first-child {
+  gap: 15px;
+  justify-content: left;
+  text-align: left;
+}
+
+/* TYPE kolonu */
+.column:nth-child(2) {
+  color: var(--color-text-lightgray);
+  font-weight: 500;
+}
+
+/* AMOUNT kolonu */
+.column:nth-child(3) {
+  font-weight: 600;
+}
+
+
+.date {
+  font-size: var(--text-sm);
+  color: var(--color-text-lightgray);
+}
