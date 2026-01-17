@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../../assets/images/Logo.webp";
 import LogoMobile from "../../../assets/images/mobileLogo.png";
 import MenuItem from "../../molecules/MenuItem/MenuItem";
+import ToggleButton from "../../atoms/ToggleButton/ToggleButton.jsx";
+
 import {
   topMenuItems,
   bottomMenuItems,
@@ -14,6 +16,10 @@ import { toast } from "react-hot-toast";
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { mutate: logoutUser } = useLogout();
+  
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1200px)");
 
@@ -31,10 +37,6 @@ export default function Sidebar() {
       else mq.removeListener(sync);
     };
   }, []);
-
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { mutate: logoutUser } = useLogout();
 
   const handleNavigate = (path, key) => {
     if (!path) return;
@@ -63,17 +65,10 @@ export default function Sidebar() {
       aria-label="Sidebar"
     >
       {/* Toggle (sadece 1200 altı görünür) */}
-      <button
-        type="button"
-        className={styles.toggleBtn}
-        onClick={handleToggle}
-        aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-        aria-pressed={collapsed}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
+      <ToggleButton
+        collapsed={collapsed}
+        onToggle={handleToggle}
+      />
 
       {/* Brand */}
       <div className={styles.brand} onClick={() => handleNavigate("/home")}>

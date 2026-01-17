@@ -43,22 +43,6 @@
   font-weight: bold;
   font-size: 14px;
 }
-
-.logoutBtn {
-  width: 100%;
-  padding: 10px 12px;
-  border: none;
-  background: none;
-  text-align: left;
-  color: var(--color-text-dark);
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 4px;
-
-  &:hover {
-    background: #fff1f0;
-  }
-}
 @media (max-width: 768px) {
   .topbar {
   height: 40px;

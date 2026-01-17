@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "./Topbar.module.scss";
 
 import PageTitle from "../../atoms/PageTitle/PageTitle";
 import IconButton from "../../atoms/IconButton/IconButton";
 import ProfileBox from "../../molecules/ProfileBox/ProfileBox";
+import MobileDropDownMenu from "../../molecules/MobileDropDownMenu/MobileDropDownMenu";
+
 
 import { selectUser } from "../../../store/auth/authSelectors";
 import { useLogout } from "../../../hooks/useAuth";
@@ -13,6 +15,12 @@ import { toast } from "react-hot-toast";
 
 import NotificationIcon from "../../icons/NotificationIcon";
 import SearchIcon from "../../icons/SearchIcon";
+
+import {
+  topMenuItems,
+  bottomMenuItems,
+  dropdownMenuItems,
+} from "../../../configs/SidebarConfig";
 
 export default function Topbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,6 +44,15 @@ export default function Topbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+   const handleNavigate = (path, key) => {
+    if (!path) return;
+
+    if (key === "logout") return handleLogout();
+
+    navigate(`/${path.replace("/", "")}`);
+    setIsMenuOpen(false);
+  };
 
   const handleLogout = () => {
     logoutUser();
@@ -80,10 +97,15 @@ export default function Topbar() {
               <div className={styles.mobileOnlyInfo}>
                 <p>{displayName}</p>
               </div>
-              <button onClick={handleLogout} className={styles.logoutBtn}>
-                Logout
-              </button>
+            <MobileDropDownMenu
+              topItems={topMenuItems}
+              dropdownItems={dropdownMenuItems}
+              bottomItems={bottomMenuItems}
+              onNavigate={handleNavigate}
+              onLogout={handleLogout}
+            />
             </div>
+            
           )}
         </div>
       </div>

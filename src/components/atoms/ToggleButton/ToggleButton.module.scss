@@ -1,0 +1,59 @@
+
+/* Toggle default: hidden on desktop */
+.toggleBtn {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  display: none;
+  border: 0;
+  background: var(--color-background-sidebar);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px 8px;
+  margin-top: 10px;
+  align-self: flex-end;
+
+  /* hit area */
+  width: 44px;
+  height: 36px;
+}
+
+/* 3 span = chevron */
+.toggleBtn span {
+  position: absolute;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 220ms ease, opacity 220ms ease, top 220ms ease;
+}
+
+/* upper + lower lines make a ">" arrow */
+.toggleBtn span:nth-child(1) {
+  top: 13px;
+  transform: translateX(-50%) rotate(45deg);
+}
+.toggleBtn span:nth-child(2) {
+  opacity: 0; /* middle hidden => cleaner chevron */
+  top: 17px;
+  transform: translateX(-50%);
+}
+.toggleBtn span:nth-child(3) {
+  top: 21px;
+  transform: translateX(-50%) rotate(-45deg);
+}
+@media (max-width: 1200px) {
+  .toggleBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+    .expanded .toggleBtn span:nth-child(1) {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  .expanded .toggleBtn span:nth-child(3) {
+    transform: translateX(-50%) rotate(45deg);
+  }
+}

@@ -1,0 +1,29 @@
+.item {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  text-align: left;
+  color: var(--color-text-dark);
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom:1px solid var(--border-color-button);
+  &:last-child{
+    border: none;
+  }
+
+  &:hover {
+    background: #fff1f0;
+  }
+  .icon{
+    margin-right: 15px;
+    svg{
+    width: 16px;
+    height: 16px;
+    }
+  }
+}

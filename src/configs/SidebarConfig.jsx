@@ -5,6 +5,8 @@ import HomeIcon from "../components/icons/HomeIcon";
 import TransactionsIcon from "../components/icons/TransactionIcon";
 import InvoiceIcon from "../components/icons/InvoiceIcon";
 import LogoutIcon from "../components/icons/LogoutIcon";
+import NotificationIcon from "../components/icons/NotificationIcon";
+import SearchIcon from "../components/icons/SearchIcon";
 
 export const topMenuItems = [
   {
@@ -50,5 +52,19 @@ export const bottomMenuItems = [
     label: "Logout",
     icon: <LogoutIcon />,
     path: "/logout",
+  },
+];
+export const dropdownMenuItems = [
+  {
+    key: "Notification",
+    label: "Notification",
+    icon: <NotificationIcon />,
+    path: "/notification",
+  },
+  {
+    key: "Search",
+    label: "Search",
+    icon: <SearchIcon />,
+    path: "/search",
   },
 ];

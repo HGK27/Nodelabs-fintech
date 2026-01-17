@@ -26,6 +26,8 @@
 @media (max-width: 1400px) {
   .content {
     padding: 0 32px;
+    height: 100%;
+  overflow-y: auto;
   }
 }
 
